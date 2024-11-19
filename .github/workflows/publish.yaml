@@ -1,0 +1,21 @@
+name: project build
+run-name: 🚀 ${{ github.actor }} is roilling new feature
+on:
+  push: 
+    branches:
+      - master
+    tags:
+      - "!fix"
+  pull_request:
+    branches:
+      - master
+    types:
+      - closed
+
+jobs:
+  clone-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: start
+        run: |
+          echo "start"
