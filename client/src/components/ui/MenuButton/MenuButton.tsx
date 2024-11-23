@@ -1,19 +1,20 @@
-import { HTMLAttributes } from 'react';
+import { type ComponentPropsWithRef } from 'react';
 
-type MenuButtonProps = Pick<
-  HTMLAttributes<HTMLButtonElement>,
-  'onClick' | 'children' | 'className'
->;
+type MenuButton = Omit<ComponentPropsWithRef<'button'>, 'onClick'> & {
+  onClick: () => void
+};
 
 export const MenuButton = ({
   children,
   className,
   onClick,
-}: Required<MenuButtonProps>): JSX.Element => {
+  ...args
+}: Readonly<MenuButton>): JSX.Element => {
   return (
     <button
       className={className}
       onClick={onClick}
+      {...args}
     >
       {children}
     </button>

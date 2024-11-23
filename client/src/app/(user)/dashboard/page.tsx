@@ -1,9 +1,7 @@
-import { Sidebar } from '@/components/layout/Sidebar/Sidebar';
+import { DashBoard } from '@/components/screens/DashBoard/DashBoard';
 
 export default function Dashboard() {
   return (
-    <div className="sidebar">
-      <Sidebar />
-    </div>
+    <DashBoard />
   );
 }

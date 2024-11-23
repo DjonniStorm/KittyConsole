@@ -1,12 +1,12 @@
 import React, {
-  type HTMLAttributes,
-  ReactNode,
+  type ComponentPropsWithoutRef,
+  type ReactNode,
 } from 'react';
 
-type SimpleIcon = Pick<
-  HTMLAttributes<HTMLDivElement>,
-  'className' | 'children'
->;
+type SimpleIcon = Omit<ComponentPropsWithoutRef<"div">, 'className' | 'children'> & {
+  className: string,
+  children: ReactNode,
+};
 
 /**
  * very simple icon, that can be used on buttons in menu, etc
@@ -15,6 +15,7 @@ type SimpleIcon = Pick<
 export const SimpleIcon = ({
   children,
   className,
-}: Required<SimpleIcon>): JSX.Element => (
-  <div className={className}>{children}</div>
+  ...args
+}: Readonly<SimpleIcon>): JSX.Element => (
+  <div className={className} {...args}>{children}</div>
 );

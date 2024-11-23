@@ -1,16 +1,13 @@
-import { type HTMLAttributes } from 'react';
+import { type ComponentPropsWithoutRef } from 'react';
 
-type MenuIconProps = Pick<
-  HTMLAttributes<HTMLButtonElement>,
-  'children' | 'className'
->;
+type MenuIconProps = ComponentPropsWithoutRef<'button'>;
 /**
  * Big icon for interactive ui buttons
  */
 export const MenuIcon = ({
   children,
   className,
-}: Required<MenuIconProps>): JSX.Element => (
+}: Readonly<MenuIconProps>): JSX.Element => (
   <button className={className}>
     {children}
   </button>
